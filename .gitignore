@@ -1,0 +1,11 @@
+game-copy/
+sample-saves/
+__pycache__/
+*.pyc
+*.pak
+*.exe
+*.dll
+*.cfg
+*.dat
+*.vdf
+research/save_inventory.json
