@@ -2,6 +2,19 @@
 
 The goal is a persistent campaign for up to four human players, with a separate multiplayer fleet and no writes to original single-player saves. This is research and a read-only inspector. A running dedicated server has yet to be demonstrated.
 
+## Current assessment — 2026-11-20
+
+A true non-player dedicated server is **not yet demonstrated**. The copied executable has Steam game-server API delay imports and dedicated-mode predicates, but neither a working launch command nor four-human capacity without a player host has been verified. An unattended ordinary client is a separate fallback with three guest slots; it does not automatically retain departing guests' trucks.
+
+The NAS save copies are stable across independent downloads. The Loadstar movement evidence was reproduced, but the supplied samples do not establish guest-disconnect or restart persistence. No game was launched or original save modified in this investigation.
+
+- [Binary evidence and exact investigation targets](research/SERVER_BINARY_ANALYSIS.md)
+- [Reproduced NAS save evidence](research/NAS_SAVE_ANALYSIS.md)
+- Server-design synthesis: still in progress; not part of this published checkpoint.
+- [Research log and verification](research/RESEARCH_LOG.md)
+
+The next decisive work is native call-path analysis of the dedicated predicates/server initialization, plus an isolated host/guest capture following the protocol below. A persistence database or Docker wrapper alone cannot establish either capability.
+
 ## Start here
 
 - Read research/FINDINGS.md for the save format, evidence, and open questions.

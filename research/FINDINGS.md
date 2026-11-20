@@ -16,6 +16,12 @@ Persistent campaign for up to four human players, with multiplayer vehicle state
 - A scan of XML/CFG/TXT/SSO/LUA entries in initial.pak found neither dedicated-server string nor Headless/headless. Compiled bundles were not interpreted.
 - Executable log strings reference replication spawn and ownership policies on client disconnect. These provide investigation targets, not confirmed hook addresses.
 
+## NAS reproduction and server-mode follow-up — 2026-11-20
+
+The copied NAS saves reproduce the earlier movement evidence. The second campaign owns 19 trucks before and 20 after; the earlier 19-truck figure describes the baseline only. Seven files change, of which three are semantically identical JSON. The samples contain no observed host/guest/disconnect/restart sequence; multiplayer counters are zero, which supplies no positive co-op evidence but is not proof that co-op never occurred. See [NAS save analysis](NAS_SAVE_ANALYSIS.md) for hashes, acquisition boundaries, and interpretation.
+
+The copied executable's SHA-256 is `d46623b23808d19a40f7ebeec15332d11f97317637ec4d4e072a501bc78a77c8`. Format-aware inspection identified actual Steam game-server delay imports, including `SteamInternal_GameServer_Init`, alongside retail graphical-client dependencies. Dedicated predicates remain untraced; the PE entrypoint lies in `.bind`. No validated server launch command, headless branch, non-player host capacity, or standalone server artifact was established. See [binary analysis](SERVER_BINARY_ANALYSIS.md) for exact offsets and search boundaries. Server-design synthesis is still in progress.
+
 ## Reproducible inspection
 
 Run the commands in README.md from the repository root. The inspector only reads the supplied copies. Its five decoder tests check length, stream integrity, trailer length, and the decompression size limit.
