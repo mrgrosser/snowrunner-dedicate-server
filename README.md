@@ -15,6 +15,11 @@ The NAS save copies are stable across independent downloads. The Loadstar moveme
 
 The next decisive work is native call-path analysis of the dedicated predicates/server initialization, plus an isolated host/guest capture following the protocol below. A persistence database or Docker wrapper alone cannot establish either capability.
 
+## Follow-up evidence
+
+- [Compiled script module attribution](research/COMPILED_SCRIPT_EVIDENCE.md): validated 2,284 modules per bundle and located dedicated-mode and guest-truck cleanup symbols; bytecode behavior remains unproven.
+- [Public existing-solutions preflight](research/EXISTING_SOLUTIONS.md): identified an ordinary-client automation helper, but no verified non-player dedicated runtime in the inspected sources.
+
 ## Start here
 
 - Read research/FINDINGS.md for the save format, evidence, and open questions.
