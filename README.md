@@ -10,7 +10,7 @@ The NAS save copies are stable across independent downloads. The Loadstar moveme
 
 - [Binary evidence and exact investigation targets](research/SERVER_BINARY_ANALYSIS.md)
 - [Reproduced NAS save evidence](research/NAS_SAVE_ANALYSIS.md)
-- Server-design synthesis: still in progress; not part of this published checkpoint.
+- [Dedicated-server requirements, lab topology, and acceptance gates](research/DEDICATED_SERVER_DESIGN.md)
 - [Research log and verification](research/RESEARCH_LOG.md)
 
 The next decisive work is native call-path analysis of the dedicated predicates/server initialization, plus an isolated host/guest capture following the protocol below. A persistence database or Docker wrapper alone cannot establish either capability.
