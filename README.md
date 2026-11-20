@@ -13,3 +13,19 @@ The goal is a persistent campaign for up to four human players, with a separate 
 Use dedicated test profiles on the host and guest. Start with North Port, Alaska, and use a guest-owned truck that is easy to distinguish from the host's fleet. Save and copy both profiles before joining, after the guest parks and while they remain connected, and after the guest leaves and the host saves again. Also capture after the host restarts if testing persistence across restarts. Record the truck model and whether it remains visible and drivable at each step. Compare the decompressed map files and check whether the host or guest saves the truck ID and position. Verify that the active profiles are separate from original campaigns before running the test.
 
 An ordinary unattended client host occupies one slot, leaving three guest slots. Treat support for four humans on a non-player host as a separate research question.
+
+## Controlled co-op capture and comparison
+
+Follow [the host/guest capture protocol](research/COOP_CAPTURE_PROTOCOL.md) before collecting new evidence. It defines isolation checks and four capture stages; no game launch or save modification is automated.
+
+Compare two completed copies of a player's `remote` folder:
+
+```bash
+mkdir -p private-evidence
+python tools/compare_snapshots.py /private/baseline/remote /private/parked/remote \
+  --truck-id KNOWN_INSTANCE_ID > private-evidence/comparison.json
+```
+
+Omit `--truck-id` if it is not known; repeat it for up to eight IDs. Reports include hashes, decoded map differences and exact ID byte references. Positional differences are not record alignment; retained references do not establish ownership or visible/drivable persistence. Compare host and guest separately and correlate with observations.
+
+Keep all raw captures and generated reports private. `private-evidence/`, `exports/`, `sample-saves/`, and `game-copy/` are ignored by Git. Decoder errors are reported with a nonzero exit code; do not treat partial reports as complete evidence.

@@ -9,3 +9,6 @@ __pycache__/
 *.dat
 *.vdf
 research/save_inventory.json
+private-evidence/
+exports/
+*.private.*
