@@ -46,3 +46,11 @@ Run the commands in README.md from the repository root. The inspector only reads
 ## Design constraints
 
 The game remains responsible for simulation until an alternative is demonstrated. A persistence database cannot prevent guest cleanup by itself. Keeping a truck in-world may require ownership transfer or a runtime modification before disconnect cleanup. Separate save isolation is necessary on every participating client, not just on the host. Runtime capability determines whether an idle host occupies a player slot. Imported inventory is a snapshot, not proof of DLC entitlement or authoritative multiplayer identity.
+
+## Native and script follow-up — 2026-11-20
+
+[Native call-path analysis](SERVER_CALL_PATHS.md) mapped the four GameServer delay imports but recovered no validated callers. The .text section has 7.999995 bits/byte entropy and implausible decoding at declared function starts and thunk targets, strongly supporting transformed/protected on-disk code. Zero selected xrefs does not establish dead functionality. Hopper is installed; a bounded attempt ended with confirmed cleanup but no native overview.
+
+[Script structural analysis](SSL_SEMANTICS.md) completely parsed all 6,852 module payloads across three variants using protobuf wire rules. It recovered 28 string-valued config constants and linked SetServerDedicated and NetDeleteDisconnectedUserTrucks declarations to named bodies in every variant. The instruction schema, callers, configuration ingestion, and runtime effects remain unresolved. These are not working launch options.
+
+Further behavior claims require an isolated runnable game environment or an analysis-friendly native artifact/schema. No runtime-control tool is exposed in this session. The existing host/guest capture protocol is ready; raw binaries and saves remain private.

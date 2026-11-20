@@ -13,9 +13,12 @@ The NAS save copies are stable across independent downloads. The Loadstar moveme
 - [Dedicated-server requirements, lab topology, and acceptance gates](research/DEDICATED_SERVER_DESIGN.md)
 - [Research log and verification](research/RESEARCH_LOG.md)
 
-The next decisive work is native call-path analysis of the dedicated predicates/server initialization, plus an isolated host/guest capture following the protocol below. A persistence database or Docker wrapper alone cannot establish either capability.
+The next decisive work requires an isolated runnable host/guest environment, or an analysis-friendly native artifact: the supplied executable's transformed/protected code prevents reliable ordinary caller tracing. The isolated host/guest capture protocol is below. A persistence database or Docker wrapper alone cannot establish either capability.
 
 ## Follow-up evidence
+
+- [Native call-path boundary](research/SERVER_CALL_PATHS.md): mapped Steam imports; high-entropy code and implausible decoding prevent validated caller recovery. Hopper exists but its bounded attempt yielded no analysis.
+- [Compiled script structure](research/SSL_SEMANTICS.md): all 6,852 module payloads parse with protobuf wire rules; dedicated setter and disconnect-cleanup declarations link to bodies. Instruction semantics and runtime reachability remain unknown.
 
 - [Compiled script module attribution](research/COMPILED_SCRIPT_EVIDENCE.md): validated 2,284 modules per bundle and located dedicated-mode and guest-truck cleanup symbols; bytecode behavior remains unproven.
 - [Public existing-solutions preflight](research/EXISTING_SOLUTIONS.md): identified an ordinary-client automation helper, but no verified non-player dedicated runtime in the inspected sources.
